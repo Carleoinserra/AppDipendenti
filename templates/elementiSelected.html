@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {%
+    for c1 in lista
+    %}
+    <li>{{ c1 }}</li>
+{% endfor %}
+</ul>
+
+<h3> La somma degli stipendi dei dipendenti selezionati è {{somma}}</h3>
+</body>
+</html>

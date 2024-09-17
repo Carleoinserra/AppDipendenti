@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Lista dipendenti</h1>
+    <form action="/processL" method="POST">
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Mansione</th>
+    <th>Stipendio</th>
+      <th>Foto</th>
+      <th>Seleziona</th>
+  </tr>
+  {%
+    for dip in lista
+    %}
+  <tr>
+
+    <td>{{dip.nome}}</td>
+    <td>{{dip.mansione}}</td>
+    <td>{{dip.stipendio}}</td>
+      <td><img src="{{ url_for('static', filename=dip.url) }}" alt="{{ dip.nome }}"></td>
+<td>
+    <p>
+      <label>
+       <input type="checkbox" id="vehicle1" name="nomeD" value="{{ dip.nome }}"/>
+        <span>Scegli</span>
+      </label>
+    </p>
+
+    </td>
+
+  </tr>
+   {% endfor %}
+</table>
+        <input type = "submit" value="Invia">
+    </form>
+</div>
+</body>
+</html>
